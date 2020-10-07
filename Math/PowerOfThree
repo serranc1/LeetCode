@@ -1,0 +1,28 @@
+class Solution {
+    public boolean isPowerOfThree(int n) {
+
+        //3^0
+        if (n == 1)
+        {
+            return true;
+        }
+        //is n divisible by 3 or is n = 0
+        else if (n % 3 != 0 || n == 0)
+        {
+            return false;
+        }
+        //2^31 - 1 (32 bits) is the maximum float value
+        //3^31 is definitely bigger than 2^31, so 31 is a conservative value
+        for(int i = 1; i < 31; i++)
+        {
+            //check if n is a power of 3
+            if (Math.pow(3, i) == n)
+            {
+                return true;
+            }
+        }
+        //default case is false
+        return false;  
+        
+    }
+}
